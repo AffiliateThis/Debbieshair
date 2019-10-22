@@ -6,8 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import UnderConstruction from "react-under-construction";
 import "react-under-construction/build/css/index.css";
 
+import TagManager from 'react-gtm-module';
 
 
+const tagManagerArgs = {
+  gtmId: "GTM-5SDDQ4N"
+};
+
+TagManager.initialize(tagManagerArgs);
+
+const app = document.getElementById("app");
 
 
 const App = () => (
