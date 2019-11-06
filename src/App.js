@@ -1,13 +1,13 @@
-import React from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
-import Navbar from "react-bootstrap/Navbar";
+import React, { Component } from "react";
+
+import Toolbar from "./components/ToolBar/Toolbar";
+import SideDrawer from "./components/SideDrawer/SideDrawer";
+import Backdrop from "./components/Backdrop/Backdrop";
+
 import UnderConstruction from "react-under-construction";
 import "react-under-construction/build/css/index.css";
 
-import TagManager from 'react-gtm-module';
-
+import TagManager from "react-gtm-module";
 
 const tagManagerArgs = {
   gtmId: "GTM-5SDDQ4N"
@@ -17,41 +17,20 @@ TagManager.initialize(tagManagerArgs);
 
 const app = document.getElementById("app");
 
-
-const App = () => (
-  <UnderConstruction
-    background={{
-      image: "https://static.pexels.com/photos/259698/pexels-photo-259698.jpeg",
-      textColor: "#fff",
-      overlay: {
-        color: "#000",
-        opacity: ".5"
-      }
-    }}
-    logo={{
-      src: "",
-      alt: "alt text"
-    }}
-    title={{
-      className:"Title",
-      text: "The Hair Studios",
-      
-    }}
-    description={{
-      text:
-        "Our website is under construction. We will soon be live.  Check back for details",
-      style: {
-        maxWidth: "440px"
-      }
-    }}
-    // subscribe={{
-    //   placeholder: 'Enter your email',
-    //   buttonText: 'Subscribe',
-    //   onSubmit: (value) => {
-    //     console.log('user typed email :', value);
-    //   }
-    // }}
-  />
-);
+class App extends Component {
+  render() {
+    return (
+      <div style={{ height: "100%" }}>
+        <Toolbar />
+        <SideDrawer />
+        <div></div>
+        <Backdrop />
+        <main style={{ marginTop: "60px" }}>
+          <p>Page Content</p>
+        </main>
+      </div>
+    );
+  }
+}
 
 export default App;
