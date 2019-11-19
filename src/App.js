@@ -1,57 +1,40 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ReactDOM from "react-dom";
 
 import Toolbar from "./components/ToolBar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
 
-import UnderConstruction from "react-under-construction";
-import "react-under-construction/build/css/index.css";
-
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import TagManager from "react-gtm-module";
-import sidedrawer from "./components/SideDrawer/SideDrawer";
-import backdrop from "./components/Backdrop/Backdrop";
-
-const tagManagerArgs = {
-  gtmId: "GTM-5SDDQ4N"
-};
-
-TagManager.initialize(tagManagerArgs);
-
-const app = document.getElementById("app");
+// import Main from "./components/Main";
 
 class App extends Component {
-  // state = {
-  //   sideDrawerOpen: false
-  // };
+  state = { sideDrawerOpen: false };
 
-  // drawerToggleClickHandler = () => {
-  //   this.setState(prevState => {
-  //     return { sideDrawerOpen: !prevState.sideDrawerOpen };
-  //   });
-  // };
+  drawerToggleClickHandler = () => {
+    this.setState(prevState => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
 
-  // render() {
-  //   let sideDrawer;
-  //   let backdrop;
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
 
-  //   if (this.state.sideDrawerOpen) {
-  //     sideDrawer = <SideDrawer />;
-  //   backdrop = <Backdrop click={this.backdropClickHandler} />;
-  //   }
   render() {
+    let backdrop;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler} />;
+    }
+
     return (
       <div style={{ height: "100%" }}>
         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer />
-        <Backdrop />
+        <SideDrawer show={this.state.sideDrawerOpen} />
+        {backdrop}
 
-        {/* {sideDrawer}
-        {backdrop} */}
-
-        <main style={{ marginTop: "64px" }}>
-          <p>Page Content</p>
-        </main>
+        <main style={{ marginTop: "64px" }}></main>
       </div>
     );
   }

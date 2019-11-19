@@ -1,8 +1,8 @@
 .toggle-button {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 25px;
+  justify-content: space-around;
+  height: 24px;
   width: 30px;
   background: transparent;
   border: none;
@@ -15,8 +15,8 @@
   outline: none;
 }
 
-.toggle-button_line {
-  width: 35px;
-  height: 1px;
-  background: white;
+.toggle-button-line {
+  width: 30px;
+  height: 2px;
+  background: whitesmoke;
 }
